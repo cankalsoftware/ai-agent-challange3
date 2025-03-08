@@ -15,19 +15,17 @@ export default function ClientWrapper({
 
   if (!schematicPubKey) {
     throw new Error(
-      "NEXT_PUBLIC_SCHEMATIC_PUBLISHABLE_KEY is not set.Please add it your .emv.local file"
+      "NEXT_PUBLIC_SCHEMATIC_PUBLISHABLE_KEY is not set.Please add it your .env.local file"
     );
   }
 
-  return (<ClerkProvider> 
+  return (
+  <ClerkProvider> 
     <SchematicProvider publishableKey={schematicPubKey}>
-         
         <SchematicWrapped>
-        {children}
-      </SchematicWrapped>
-   
+          {children}
+        </SchematicWrapped>
     </SchematicProvider>
-    
-    </ClerkProvider>
+  </ClerkProvider>
    );
 }

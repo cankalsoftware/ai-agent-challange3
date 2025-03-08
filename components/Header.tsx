@@ -1,8 +1,5 @@
 "use client";
 
-
-
-
 import Link from 'next/link';
 import React from 'react'
 import AgentPulse from './AgentPulse';
@@ -19,7 +16,7 @@ function Header() {
               <Link href="/" className='flex items-center gap-4' >
                 <AgentPulse size="small" color="blue" />
                 <h1 className='text-xl font-semibold bg-gradient-to-r from-blue-600 to-blue-400 text-transparent bg-clip-text'>
-                  AgentTube
+                  MentorInAI
                 </h1>
               </Link>
             </div>
@@ -28,8 +25,8 @@ function Header() {
             <div className='flex items-center gap-4'>
               <SignedIn>
                 <Link href="/manage-plan" className='px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors'>
-                <Button variant="outline"
-                className='mr-4 bg-gradient-to-r from-blue-600 to-blue-400 text-transparent bg-clip-text'
+                <Button variant="ghost"
+                className='mr-4 bg-gradient-to-r from-blue-900 to-blue-600 text-gray-900 bg-clip-text'
                 >Manage Plan</Button>
                 </Link>
                 <div className='p-2 w-10 h-10 flex items-center justify-center rounded-full bg-blue-100 border border-blue-200'>
@@ -40,7 +37,8 @@ function Header() {
               {/* Signed Out */}
               <SignedOut>
                   <SignInButton mode="modal">
-                  <Button variant="ghost" className='mr-4 bg-gradient-to-r from-blue-600 to-blue-400 text-transparent bg-clip-text'>
+                  <Button variant="ghost" 
+                  className='mr-4 bg-gradient-to-r from-blue-900 to-blue-600 text-gray-900 bg-clip-text'>
                     Sign In
                   </Button>
                   </SignInButton>
