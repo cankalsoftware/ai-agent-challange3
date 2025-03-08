@@ -11,11 +11,15 @@
   "dependencies": {
     "@clerk/nextjs": "^6.12.3",
     "@radix-ui/react-slot": "^1.1.2",
+    "@schematichq/schematic-components": "^0.4.11",
     "@schematichq/schematic-react": "^1.2.4",
+    "@schematichq/schematic-typescript-node": "^1.1.9",
+    "add": "^2.0.6",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.477.0",
     "next": "15.2.2-canary.0",
+    "pnpm": "^10.6.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.0.2"
