@@ -4,10 +4,8 @@ import React from 'react';
 import { 
     Brain, 
     PenTool, 
-    Image as ImageIcon,
-    MessageSquare,
-    Sparkles, 
-    Video} from "lucide-react";
+    Image as ImageIcon
+    } from "lucide-react";
 
     const features = [
         {

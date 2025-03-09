@@ -1,5 +1,5 @@
 "use server";
-//import {getVideoIdFromUrl} from "@/lib/youtube/getVideoIdFromUrl";
+import {getVideoIdFromUrl} from "@/lib/getVideoFromUrl";
 import { redirect } from "next/navigation";
 
 export async function analyseYoutubeVideo(formData: FormData) {
@@ -8,7 +8,7 @@ export async function analyseYoutubeVideo(formData: FormData) {
     throw new Error("URL is required");
   }
   //const videoId = getVideoIdFromUrl(url);
-  const videoId = 'url';
+  const videoId = getVideoIdFromUrl(url) || null;
   if (!videoId) {
     throw new Error("Invalid URL");
   }
