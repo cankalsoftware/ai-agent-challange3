@@ -5,10 +5,14 @@ import Usage from "./Usage";
 import { FeatureFlag } from "@/features/flags";
 import { useSchematicEntitlement } from "@schematichq/schematic-react";
 import { Copy } from "lucide-react";
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import { toast } from "sonner";
+
 
 function TitleGeneration({videoId}: {videoId: string}) {    
     const {user } = useUser();
-    const titles : {title: string; _id: string; }[] = []; // TODO: add type
+    const titles = useQuery(api.titles.list, { videoId, userId: user?.id ?? "" });
 
     // Temp fix
     console.log(titles, user, videoId);
@@ -17,7 +21,7 @@ function TitleGeneration({videoId}: {videoId: string}) {
 
     const copyToClipboard = (text: string) => {
         navigator.clipboard.writeText(text);
-        // toast.success("Title copied to clipboard");
+        toast.success("Title copied to clipboard");
     };
 
     return (
@@ -58,7 +62,7 @@ function TitleGeneration({videoId}: {videoId: string}) {
 
 
             {/*No tiles generated yet*/}
-            {!titles.length && !!isTitleGenerationEnabled && (
+            {!titles?.length && !!isTitleGenerationEnabled && (
                 <div className="text-center py-8 px-4 rounded-lg mt-4 border-2 border-dashed border-gray-200">
                     <p className="text-sm text-gray-500">No titles generated yet</p>
                     <p className="text-xs text-gray-500 mt-1">

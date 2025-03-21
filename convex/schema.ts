@@ -9,7 +9,7 @@ import { v } from "convex/values";
 
 export default defineSchema({
     videos: defineTable({
-        userId: v.id("users"),
+        userId: v.string(),
         videoId: v.string(),
     })
     .index("by_user_id", ["userId"])
@@ -21,7 +21,7 @@ export default defineSchema({
         userId: v.string(),
         transcript: v.array(v.object({
             text: v.string(),
-            timestamp: v.number(),
+            timestamp: v.string(),
         })),
     })
     .index("by_user_id", ["userId"])

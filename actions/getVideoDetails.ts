@@ -9,7 +9,7 @@ const youtube = google.youtube({
 })
 
 export async function getVideoDetails(videoId: string) {
-    console.log('Fetching video details for ', videoId);
+    //console.log('Fetching video details for ', videoId);
         try{
             const response = await youtube.videos.list({
                 part: ['snippet', 'statistics'],
@@ -28,7 +28,7 @@ export async function getVideoDetails(videoId: string) {
             })
             const channelDetails = channelResponse.data.items?.[0];
       
-            console.log('Channel details: ', channelDetails);
+            //console.log('Channel details: ', channelDetails);
             
             // Get video info
             const video : VideoDetails = {
@@ -36,7 +36,8 @@ export async function getVideoDetails(videoId: string) {
               title: videoDetails.snippet?.title || 'Unknown Title',
               thumbnail: 
                 videoDetails.snippet?.thumbnails?.maxres?.url ||
-                videoDetails.snippet?.thumbnails?.high?.url ||               videoDetails.snippet?.thumbnails?.default?.url || '',
+                videoDetails.snippet?.thumbnails?.high?.url || 
+                videoDetails.snippet?.thumbnails?.default?.url || '',
               publishedAt: videoDetails.snippet?.publishedAt || new Date().toISOString(),
               views: videoDetails.statistics?.viewCount || '0',
               likes: videoDetails.statistics?.likeCount || '0',
