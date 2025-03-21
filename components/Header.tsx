@@ -5,10 +5,6 @@ import React from 'react'
 import AgentPulse from './AgentPulse';
 import { SignedIn, SignedOut, UserButton, SignInButton } from '@clerk/nextjs';
 import { Button } from './ui/button';
-import { useTheme } from "next-themes";
-import { Moon, Sun } from "lucide-react";
-
-const { theme, setTheme } = useTheme();
 
 function Header() {
   return (
@@ -48,20 +44,6 @@ function Header() {
                   </SignInButton>
                 
               </SignedOut>
-                      
-                      <div className="flex items-center gap-2">
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                          className="text-purple-600 hover:text-purple-700"
-                        >
-                          {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-                        </Button>
-                        
-                      </div>
-
-
 
             </div>
           </div>
