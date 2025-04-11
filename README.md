@@ -44,3 +44,6 @@ $pnpm run build   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 Run the convex engine with
 $pnpx convex dev
+
+Production branch update
+with Google and Github Auth links
