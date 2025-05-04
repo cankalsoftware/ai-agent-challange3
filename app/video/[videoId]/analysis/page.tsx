@@ -6,35 +6,49 @@ import Transcription from "@/components/Transcription";
 import Usage from "@/components/Usage";
 import YoutubeVideoDetails from "@/components/YoutubeVideoDetails";
 import { FeatureFlag } from "@/features/flags";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Doc } from "@/convex/_generated/dataModel";
 import { useUser } from "@clerk/nextjs";
 import { createOrGetVideo } from "@/actions/createOrGetVideo";
+import { toast } from "sonner";
+
 
 function AnalysisPage() {
   const params = useParams<{videoId: string}>();
   const {videoId} = params;
   const {user} = useUser();
+  const router = useRouter();
   const [video,setVideo] = useState< Doc<"videos"> | null | undefined> (undefined); 
 // check the user status via middleware.ts  automatically redirecting unauthenticated users to sign inand get the video details either from data or from YouTube via Google API
   useEffect(() => {
     if(!user?.id) return;
+
+    // Validate videoId format
+    if (!videoId || !/^[a-zA-Z0-9_-]{11}$/.test(videoId as string)) {
+      toast.error("Invalid video ID format");
+      router.push('/');
+      return;
+    }
    
     const fetchVideo = async () => {
-      // Analise the video ( add video to DB here)
-      const response = await createOrGetVideo(videoId as string,user.id);
-      if(!response.success) {
-        //toast.error(response.error);
-        //return;
-      } else {
-        setVideo(response.data!);
+      try {
+        // Analise the video ( add video to DB here)
+        const response = await createOrGetVideo(videoId as string,user.id);
+        if(!response.success) {
+          toast.error(response.error || "Failed to analyze video");
+          return;
+        } else {
+          setVideo(response.data!);
+        }
+      } catch (error) {
+        toast.error("An error occurred while analyzing the video");
+        console.error("Error in fetchVideo:", error);
       }
-    
     }
 
     fetchVideo();
-  }, [videoId,user]);
+  }, [videoId,user,router]);
 
   const VideoTranscriptionStatus =
     video === undefined ? (

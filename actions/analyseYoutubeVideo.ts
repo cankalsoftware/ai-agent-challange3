@@ -1,18 +1,21 @@
 "use server";
 import {getVideoIdFromUrl} from "@/lib/getVideoFromUrl";
-import { redirect } from "next/navigation";
 
 export async function analyseYoutubeVideo(formData: FormData) {
-  const url = formData.get("url")?.toString();
-  if (!url) {
-    throw new Error("URL is required");
+  try {
+    const url = formData.get("url")?.toString();
+    if (!url) {
+      return { error: "URL is required" };
+    }
+    
+    const videoId = getVideoIdFromUrl(url) || null;
+    if (!videoId) {
+      return { error: "Invalid URL" };
+    }
+    
+    // Return success with videoId for client-side routing
+    return { success: true, videoId };
+  } catch (error) {
+    return { error: "An unexpected error occurred" };
   }
-  //const videoId = getVideoIdFromUrl(url);
-  const videoId = getVideoIdFromUrl(url) || null;
-  if (!videoId) {
-    throw new Error("Invalid URL");
-  }
-  redirect(`/video/${videoId}/analysis`);
 }
-
- 

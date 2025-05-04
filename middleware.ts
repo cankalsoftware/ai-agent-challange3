@@ -4,10 +4,8 @@ import { NextRequest } from "next/server";
 // Define multiple protected routes
 const protectedRoutes = [
     '/video(/.*)?',  // All routes under /video
-    '/dashboard(/.*)?',  // All routes under /dashboard
-    '/profile',  // Specific profile page
-    '/settings(/.*)?',  // All routes under /settings
     '/create-content(/.*)?' // All routes under speach to text  / create content page
+
 ];
 
 // Create route matchers for all protected routes
@@ -19,7 +17,9 @@ export default clerkMiddleware(async(auth, req) => {
     const{userId, redirectToSignIn} = await auth();
     if(!userId && isProtectedRoute(req)){
         // Redirect to sign in page
-        return redirectToSignIn();
+        return redirectToSignIn({
+            returnBackUrl: req.url
+        });
     }
 });
 
