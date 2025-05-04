@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { createAnthropic } from "@ai-sdk/anthropic";
 import { streamText, tool } from "ai";
 import { currentUser } from "@clerk/nextjs/server";

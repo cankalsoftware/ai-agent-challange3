@@ -9,7 +9,7 @@ npm run dev
 # or
 yarn dev
 # or
-pnpm dev
+pnpm dev   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # or
 bun dev
 ```
@@ -36,3 +36,49 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 
+shadcn to create a new app
+https://ui.shadcn.com/docs/tailwind-v4
+
+pnpm dlx shadcn@latest init << app name to create>>
+set default values in installation
+
+or
+Install a template for Next.js
+
+$ pnpm create next-app@canary ai-agent-challange
+
+Set all the options with default
+
+
+After that in terminal run
+$ pnpm dev
+This will run the app in localhost:3000
+
+you can use WARP for comand processes
+
+Then install clerk for next.js
+$pnpm add @clerk/nextjs
+
+install Vercel
+and run
+$vercel
+
+
+Vercel deployment
+do a preview first
+
+$ vercel --preview
+
+$ vercel --prod   >>>>>>>>>>>>>>>>>>>>
+
+build the app
+$pnpm run build   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Run the convex engine with
+$pnpx convex dev   /// update
+
+Production branch update
+with Google and Github Auth links
+
+ctrl+space 
+will add the highlighted component import  on top

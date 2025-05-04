@@ -1,14 +1,26 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
-// /video protexcted page
-const isprotectedRoute = createRouteMatcher('/video(/.*)?');
+import { NextRequest } from "next/server";
+
+// Define multiple protected routes
+const protectedRoutes = [
+    '/video(/.*)?',  // All routes under /video
+    '/dashboard(/.*)?',  // All routes under /dashboard
+    '/profile',  // Specific profile page
+    '/settings(/.*)?',  // All routes under /settings
+    '/create-content(/.*)?' // All routes under speach to text  / create content page
+];
+
+// Create route matchers for all protected routes
+const isProtectedRoute = (req: NextRequest) => {
+    return protectedRoutes.some(route => createRouteMatcher(route)(req));
+};
 
 export default clerkMiddleware(async(auth, req) => {
     const{userId, redirectToSignIn} = await auth();
-    if(!userId && isprotectedRoute(req)){
-           // Redirect to sign in page
+    if(!userId && isProtectedRoute(req)){
+        // Redirect to sign in page
         return redirectToSignIn();
     }
-
 });
 
 export const config = {

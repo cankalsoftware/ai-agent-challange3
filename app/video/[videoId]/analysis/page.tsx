@@ -17,7 +17,7 @@ function AnalysisPage() {
   const {videoId} = params;
   const {user} = useUser();
   const [video,setVideo] = useState< Doc<"videos"> | null | undefined> (undefined); 
-
+// check the user status via middleware.ts  automatically redirecting unauthenticated users to sign inand get the video details either from data or from YouTube via Google API
   useEffect(() => {
     if(!user?.id) return;
    
@@ -71,6 +71,12 @@ function AnalysisPage() {
   return (
     <div className="xl:container mx-auto px-4 py-8 md:px-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          {/* Left Log list Bar */}
+
+
+
+
+
           {/* Left Sidebar */}
           <div className="order-2 lg:order-1 flex flex-col gap-4 bg-white lg:border-r border-gray-200 p-6 ">
             {/* Analysis section */}
