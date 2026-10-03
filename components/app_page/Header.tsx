@@ -2,9 +2,9 @@
 
 import Link from 'next/link';
 import React from 'react'
-import AgentPulse from './AgentPulse';
+import AgentPulse from '../ui/AgentPulse';
 import { SignedIn, SignedOut, UserButton, SignInButton } from '@clerk/nextjs';
-import { Button } from './ui/button';
+import { Button } from '../ui/button';
 
 function Header() {
   return (

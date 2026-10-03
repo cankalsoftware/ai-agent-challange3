@@ -1,10 +1,10 @@
 'use client'
 import AiAgentChat from "@/components/AiAgentChat";
-import ThumbnailGeneration from "@/components/ThumbnailGeneration";
-import TitleGeneration from "@/components/TitleGeneration";
-import Transcription from "@/components/Transcription";
-import Usage from "@/components/Usage";
-import YoutubeVideoDetails from "@/components/YoutubeVideoDetails";
+import ThumbnailGeneration from "@/components/YouTube/ThumbnailGeneration";
+import TitleGeneration from "@/components/YouTube/TitleGeneration";
+import Transcription from "@/components/YouTube/Transcription";
+import Usage from "@/components/schematic/Usage";
+import YoutubeVideoDetails from "@/components/YouTube/YoutubeVideoDetails";
 import { FeatureFlag } from "@/features/flags";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";

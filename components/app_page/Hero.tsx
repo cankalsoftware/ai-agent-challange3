@@ -1,9 +1,9 @@
 'use client';
 
-import YoutubeVideoForm from "./YoutubeVideoForm";
+import YoutubeVideoForm from "../YouTube/YoutubeVideoForm";
 
 
-import AgentPulse from "./AgentPulse";
+import AgentPulse from "../ui/AgentPulse";
 
 export default function Hero() {
 

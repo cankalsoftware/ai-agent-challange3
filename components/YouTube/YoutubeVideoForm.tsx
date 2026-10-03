@@ -1,9 +1,9 @@
 "use client";
 import Form from "next/form";
-import AnalyseButton from "./AnalyseButton";
-import { analyseYoutubeVideo } from "@/actions/analyseYoutubeVideo";
+import AnalyseButton from "../ui/AnalyseButton";
+import { analyseYoutubeVideo } from "@/actions/analyseYoutubeVideoURL";
 import Link from "next/link";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 

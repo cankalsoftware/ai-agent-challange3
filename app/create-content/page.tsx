@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { FeatureFlag } from '@/features/flags';
-import Usage from '@/components/Usage';
+import Usage from '@/components/schematic/Usage';
 
 export default function CreateContent() {
   const [isRecording, setIsRecording] = useState(false);
@@ -13,15 +13,16 @@ export default function CreateContent() {
 
 
       <h1 className="text-2xl font-bold mb-4 my-8">Create Your Content</h1>
-      <div className='flex flex-col gap-4 p-4 border border-gray-200 rounded-xl'>
-              <Usage
-              featureFlag = {FeatureFlag.CREATE_CONTENT}
-              title = "Create Content"
-              />
-        </div>
       <div className="max-w-2xl mx-auto">
+        <div className='flex flex-col gap-4 p-4 border border-gray-200 rounded-xl'>
+                <Usage
+                featureFlag = {FeatureFlag.CREATE_CONTENT}
+                title = "Create Content"
+                />
+        </div>
+     
         <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-semibold mb-4">Speech to Text Content Creator</h2>
+          <h2 className="text-xl font-semibold mb-4 text-black">Speech to Text Content Creator</h2>
           <p className="text-gray-600 mb-6">
             Record your voice and convert it to text content. Click the button below to start recording.
           </p>

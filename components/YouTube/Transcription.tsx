@@ -3,7 +3,7 @@
 import { FeatureFlag } from "@/features/flags";
 import { useSchematicEntitlement } from "@schematichq/schematic-react";
 import { useCallback, useEffect, useState } from "react";
-import Usage from "./Usage";
+import Usage from "../schematic/Usage";
 import { getYoutubeTranscript } from "@/actions/getYoutubeTranscript";
 
 interface TranscriptEntry {

@@ -1,7 +1,7 @@
 'use client';
 
 import { useUser } from "@clerk/nextjs";
-import Usage from "./Usage";
+import Usage from "../schematic/Usage";
 import { FeatureFlag } from "@/features/flags";
 import Image from "next/image";
 import { useQuery } from "convex/react";

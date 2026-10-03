@@ -3,11 +3,11 @@ import { createAnthropic } from "@ai-sdk/anthropic";
 import { streamText, tool } from "ai";
 import { currentUser } from "@clerk/nextjs/server";
 import { getVideoDetails } from "@/actions/getVideoDetails";
-import fetchTranscript from "@/app/tools/fetchTranscript";
-import { generateImage } from "@/app/tools/generateImage";
+import fetchTranscript from "@/tools/fetchTranscript";
+import { generateImage } from "@/tools/generateImage";
 import { z } from "zod";
-import { getVideoIdFromUrl } from "@/lib/getVideoFromUrl";
-import generateTitle from "@/app/tools/generateTitle";
+import { getVideoIdFromUrl } from "@/actions/getVideoFromUrl";
+import generateTitle from "@/tools/generateTitle";
 
 
 
